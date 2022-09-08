@@ -1,0 +1,47 @@
+
+  <div class="card card" style=" width: 60%; height: 500px;  background: #56C6EA; margin: 0 auto;">
+    <div class="card-body">
+      <img class=" rounded mx-auto d-block" src="<%= asset_path( 'logo.png' ) %>" alt="Card image cap" width="auto" height="100px">
+
+      <br/>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field form-group" style="margin:auto; width: 90%">
+      <% f.label :email %><br />
+      <%= f.email_field :email, class:"form-control", placeholder:"Email", autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field form-group " style="margin:auto; width: 90%">
+      <% f.label :password %><br />
+      <%= f.password_field :password, class:"form-control", placeholder:"Password",  autocomplete: "current-password" %>
+    </div>
+
+
+<br/><br/>
+  <div class="row">
+    <% if devise_mapping.rememberable? %>
+      <div class="field form-group text-center" style="margin:auto; width: 90%;">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %> 
+          &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; 
+          <%= render "devise/shared/links" %>
+      </div>
+    <% end %>
+  </div>
+
+
+<br/>
+
+    <div class="actions text-center" style="width: auto; height: auto;">
+      <%= f.submit "LOGIN", class:'btn btn-light .btn-block' %>
+    </div>
+
+
+  <% end %>
+      
+    </div>
+  </div>
+
+  <br/>
+
+  
