@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Iid:</strong>
+  <%= @island.IID %>
+</p>
+
+<p>
+  <strong>Islandname:</strong>
+  <%= @island.islandName %>
+</p>
+
+<p>
+  <strong>Numplants:</strong>
+  <%= @island.numPlants %>
+</p>
+
+<%= link_to 'Edit', edit_island_path(@island) %> |
+<%= link_to 'Back', islands_path %>

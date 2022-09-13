@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #56C6EA;">
+  
+  <div class= "container-fluid">
+      <%= link_to image_tag("logo.png", :size => "150x100"), root_path, class:"navbar-brand"%>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse " id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "Documents", root_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Administrative Tools
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">System Audit Logs</a></li>
+            <li><a class="dropdown-item" href="#">Manage Users</a></li>
+            <li><a class="dropdown-item" href="#">Database Backups</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Settings", root_path, class:"nav-link" %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to 'Log Out', destroy_user_session_path, class:"nav-link", method: :delete %>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
