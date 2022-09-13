@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_06_130829) do
+ActiveRecord::Schema.define(version: 2022_09_12_105953) do
+
+  create_table "islands", force: :cascade do |t|
+    t.integer "IID"
+    t.string "islandName"
+    t.integer "numPlants"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
