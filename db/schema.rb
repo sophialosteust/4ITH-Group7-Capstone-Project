@@ -10,12 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_12_105953) do
+ActiveRecord::Schema.define(version: 2022_09_15_073413) do
+
+  create_table "deep_wells", force: :cascade do |t|
+    t.integer "dwID"
+    t.string "deepWellName"
+    t.date "dateGranted"
+    t.string "ownerName"
+    t.string "wellLocation"
+    t.string "wellCoodinates"
+    t.string "waterPermitNo"
+    t.string "contractor"
+    t.string "depthTotal"
+    t.date "dateofUTVI"
+    t.string "reason"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "islands", force: :cascade do |t|
     t.integer "IID"
     t.string "islandName"
     t.integer "numPlants"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "plants", force: :cascade do |t|
+    t.integer "pID"
+    t.string "plantName"
+    t.integer "numDeepWell"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -28,6 +52,12 @@ ActiveRecord::Schema.define(version: 2022_09_12_105953) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "encrypted_otp_secret"
+    t.string "encrypted_otp_secret_iv"
+    t.string "encrypted_otp_secret_salt"
+    t.integer "consumed_timestep"
+    t.boolean "otp_required_for_login"
+    t.string "otp_backup_codes"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
