@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Deep Wells</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dwid</th>
+      <th>Deepwellname</th>
+      <th>Dategranted</th>
+      <th>Ownername</th>
+      <th>Welllocation</th>
+      <th>Wellcoodinates</th>
+      <th>Waterpermitno</th>
+      <th>Contractor</th>
+      <th>Depthtotal</th>
+      <th>Dateofutvi</th>
+      <th>Reason</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @deep_wells.each do |deep_well| %>
+      <tr>
+        <td><%= deep_well.dwID %></td>
+        <td><%= deep_well.deepWellName %></td>
+        <td><%= deep_well.dateGranted %></td>
+        <td><%= deep_well.ownerName %></td>
+        <td><%= deep_well.wellLocation %></td>
+        <td><%= deep_well.wellCoodinates %></td>
+        <td><%= deep_well.waterPermitNo %></td>
+        <td><%= deep_well.contractor %></td>
+        <td><%= deep_well.depthTotal %></td>
+        <td><%= deep_well.dateofUTVI %></td>
+        <td><%= deep_well.reason %></td>
+        <td><%= link_to 'Show', deep_well %></td>
+        <td><%= link_to 'Edit', edit_deep_well_path(deep_well) %></td>
+        <td><%= link_to 'Destroy', deep_well, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Deep Well', new_deep_well_path %>
