@@ -1,0 +1,22 @@
+<body style="background-color:#2FB6E1;">
+  <div class="position-absolute top-50 start-50 translate-middle card card" style=" width: auto; height: auto;  background: #56C6EA; margin: 0 auto;">
+    <div class="card-body" width="auto" height="auto" >
+      <img class=" rounded mx-auto d-block" src="<%= asset_path( 'logo.png' ) %>" alt="Card image cap" width="auto" height="100px">
+
+      <br/>
+
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), method: :post) do |f| %>
+        <div class="field form-group" style="margin:auto; width: 90%">
+        <%= f.input :otp_attempt, label: false, class:"form-control", placeholder:"OTP" %>
+
+        <br/>
+
+        <div class="actions text-center" style="width: auto; height: auto;">
+          <%= f.submit 'LOGIN', class: 'btn btn-light .btn-block' %>
+        </div>
+      <% end %>
+      <br/>
+      </div>
+    </div>
+  </div>
+</body>
