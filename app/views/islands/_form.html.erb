@@ -1,32 +1,14 @@
-<%= form_with(model: island, local: true) do |form| %>
-  <% if island.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(island.errors.count, "error") %> prohibited this island from being saved:</h2>
+<%= simple_form_for(@island) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-      <ul>
-        <% island.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :IID %>
-    <%= form.number_field :IID %>
+  <div class="form-inputs">
+    <%= f.input :IID %>
+    <%= f.input :islandName %>
+    <%= f.input :numPlants %>
   </div>
 
-  <div class="field">
-    <%= form.label :islandName %>
-    <%= form.text_field :islandName %>
-  </div>
-
-  <div class="field">
-    <%= form.label :numPlants %>
-    <%= form.number_field :numPlants %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= f.button :submit %>
   </div>
 <% end %>

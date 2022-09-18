@@ -1,0 +1,2 @@
+class DeepWell < ApplicationRecord
+end

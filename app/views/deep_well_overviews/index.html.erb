@@ -1,0 +1,36 @@
+<div class="container">
+<h1>Deep Well Overview</h1>
+<form class="d-flex" role="search" style="width: 25%">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-light text-right float-end" type="submit">Search</button>
+        </form> <br>
+<table class="table table-hover table-bordered ">
+  <thead>
+    <tr>
+      <!--<th>Dwid</th>-->
+      <th style="width: 60%">Deep Well Name</th>
+      <th style="width: auto;">Date Added</th>
+      <th>Date Updated</th>
+      <th colspan="2"></th>
+  </thead>
+
+  <tbody>
+    <% @deep_well_overviews.each do |deep_well_overview| %>
+      <tr>
+        <td><%= deep_well_overview.deepWellName %></td>
+        <td><%= deep_well_overview.created_at %></td>
+        <td><%= deep_well_overview.updated_at%></td>
+        <!--<td><% link_to 'Show', deep_well_overview %></td>-->
+        <td><%= link_to 'Edit', edit_deep_well_overview_path(deep_well_overview) %></td>
+        <td><%= link_to 'Delete', deep_well_overview, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<button type="button" class="btn btn-light text-right float-end" >
+    <%= link_to 'Add Deep Well', new_deep_well_overview_path %>
+  </button>
+
+</div>

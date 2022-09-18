@@ -1,0 +1,2 @@
+class DeepWellOverview < ApplicationRecord
+end

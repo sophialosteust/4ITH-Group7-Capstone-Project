@@ -1,6 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-
 <div class="container">
   <h1>Islands</h1>
     <form class="d-flex" role="search" style="width: 25%">
@@ -13,6 +10,7 @@
     <tr>
       <th style="width: 60%">Island Name</th>
       <th style="width: auto;">Number of Plants</th>
+      <th colspan="1">Delete</th>
 
     </tr>
   </thead>
@@ -21,8 +19,8 @@
       <tr>
         <td><%= link_to island.islandName, island %></td>
         <td><%= island.numPlants %></td>
+        <td><%= link_to 'Destroy', island, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <!--
-        begin
         <td><% link_to 'Edit', edit_island_path(island) %></td>
         <td><% link_to 'Destroy', island, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         -->
@@ -37,5 +35,3 @@
     
 </button>
 </div>
-
-

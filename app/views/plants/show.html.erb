@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pid:</strong>
+  <%= @plant.pID %>
+</p>
+
+<p>
+  <strong>Plantname:</strong>
+  <%= @plant.plantName %>
+</p>
+
+<p>
+  <strong>Numdeepwell:</strong>
+  <%= @plant.numDeepWell %>
+</p>
+
+<%= link_to 'Edit', edit_plant_path(@plant) %> |
+<%= link_to 'Back', plants_path %>
