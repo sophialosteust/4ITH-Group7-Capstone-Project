@@ -17,7 +17,7 @@
   <tbody>
     <% @deep_well_overviews.each do |deep_well_overview| %>
       <tr>
-        <td><%= deep_well_overview.deepWellName %></td>
+        <td><%= link_to deep_well_overview.deepWellName, deep_wells_path %></td>
         <td><%= deep_well_overview.created_at %></td>
         <td><%= deep_well_overview.updated_at%></td>
         <!--<td><% link_to 'Show', deep_well_overview %></td>-->
