@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dwid:</strong>
+  <%= @deep_well_overview.dwID %>
+</p>
+
+<p>
+  <strong>Deepwellname:</strong>
+  <%= @deep_well_overview.deepWellName %>
+</p>
+
+<%= link_to 'Edit', edit_deep_well_overview_path(@deep_well_overview) %> |
+<%= link_to 'Back', deep_well_overviews_path %>

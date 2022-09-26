@@ -12,6 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2022_09_18_072200) do
 
+  create_table "deep_well_overviews", force: :cascade do |t|
+    t.integer "dwID"
+    t.string "deepWellName"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "deep_wells", force: :cascade do |t|
     t.integer "dwID"
     t.string "deepWellName"
