@@ -1,60 +1,65 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container">
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="field form-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, class:"form-control", autofocus: true, autocomplete: "email" %>
+    </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+    <br>
+    <div class="field form-group">
+      <%= f.label :password %> <i>(<em><%= @minimum_password_length %> characters minimum</em>)</i><br />
+      <%= f.password_field :password,class:"form-control", autocomplete: "new-password" %>
+      <% if @minimum_password_length %>
+        
+        
+      <% end %>
+    </div>
+      <br>
+    <div class="field form-group">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, class:"form-control",autocomplete: "new-password" %>
+    </div><br>
+
+    <div class="field form-group">
+      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.password_field :current_password,class:"form-control", autocomplete: "current-password" %>
+    </div>
+<br>
+    <div class="actions" style="width: 25%; height: auto;">
+      <%= f.submit "SAVE CHANGES", class:'btn btn-light .btn-block'%>
+    </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+  <br />
+  <div class="card">
+    <div class="card-header">
+      Two factor authentication
+    </div>
+    <div class="card-body">
+      <% if current_user.otp_required_for_login %>
+        <p>Two factor authentication is enabled.</p>
+        <p><%= link_to('Disable Two Factor Authentication', two_factor_settings_path, class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure you want to disable two factor authentication?'}) %></p>
+      <% else %>
+        <p>Two factor authentication is NOT enabled.</p>
+        <p><%= link_to('Enable Two Factor Authentication', new_two_factor_settings_path, class: 'btn btn-primary') %></p>
+      <% end %>
+    </div>
   </div>
+  <br />
+<!--
+  <h3>Cancel my account</h3>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<br />
-<div class="card">
-  <div class="card-header">
-    Two factor authentication
-  </div>
-  <div class="card-body">
-    <% if current_user.otp_required_for_login %>
-      <p>Two factor authentication is enabled.</p>
-      <p><%= link_to('Disable Two Factor Authentication', two_factor_settings_path, class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure you want to disable two factor authentication?'}) %></p>
-    <% else %>
-      <p>Two factor authentication is NOT enabled.</p>
-      <p><%= link_to('Enable Two Factor Authentication', new_two_factor_settings_path, class: 'btn btn-primary') %></p>
-    <% end %>
-  </div>
+  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+-->
+<button type="button" class="btn btn-light text-right float-end" >
+  <%= link_to "Back", :back %>
+    </button>
+    <br>
 </div>
-<br />
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
