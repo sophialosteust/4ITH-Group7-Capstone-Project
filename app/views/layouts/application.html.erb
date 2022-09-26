@@ -17,8 +17,6 @@
   <body>
     <% if user_signed_in?%>
       <%= render 'layouts/navbar' %>
-      <%= link_to 'Users', users_path %>
-      <%= link_to 'Profile', user_path(current_user) %>
     <% end %>
     <br/>
     

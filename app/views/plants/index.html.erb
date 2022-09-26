@@ -24,7 +24,7 @@
     <% @plants.each do |plant| %>
       <tr>
         <!--<td><%= plant.pID %></td>-->
-        <td><%= plant.plantName %></td>
+        <td><%= link_to plant.plantName, deep_well_overviews_path %></td>
         <td><%= plant.numDeepWell %></td>
         <td><%= plant.created_at %></td>
         <td><%= plant.updated_at%></td>
