@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :audit_logs
   resources :deep_well_overviews
   resources :deep_wells
   resources :plants
