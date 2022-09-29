@@ -1,28 +1,24 @@
-<!-- -->
+<!--Login Page-->
 <body style="background-color:#2FB6E1;">
+
   <div class="position-absolute top-50 start-50 translate-middle card " style=" width: auto; height: auto;  background: #56C6EA; margin: 0 auto;">
     <div class="card-body">
-      <img class=" rounded mx-auto d-block" src="<%= asset_path( 'logo.png' ) %>" alt="Card image cap" width="auto" height="100px">
-      <br/>
-      <br/>
-
+      <!--Logo-->
+      <img class=" rounded mx-auto d-block" src="<%= asset_path( 'logo.png' ) %>" alt="Card image cap" width="auto" height="100px"><br/><br/>
+      
+      <!--Login Form Start-->
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field form-group" style="margin:auto; width: 90%">
           <%= f.email_field :email, class:"form-control", placeholder:"Email", autofocus: true, autocomplete: "email" %>
-        </div>
-
-        <br/>
-
+        </div><br/>
         <div class="field form-group " style="margin:auto; width: 90%">
           <%= f.password_field :password, class:"form-control", placeholder:"Password",  autocomplete: "current-password" %>
         </div>
-
-        <div class="text-center" >
+        <div class="text-center">
           <br/>
-          <i><p style="color:#D2042D;"><%= alert %></p></i>
+            <i><p style="color:#D2042D;"><%= alert %></p></i> <!--Alert-->
         </div>
-
-        <div class="row">
+        <div class="row"> <!--Remember Me Checkbox-->
           <% if devise_mapping.rememberable? %>
             <div class="field form-group text-center" style="margin:auto; width: 90%;">
                 <%= f.check_box :remember_me %>
@@ -30,18 +26,14 @@
                 <%= render "devise/shared/links" %>
             </div>
           <% end %>
-        </div>
-
-
-        <br/>
-
+        </div><br/>
         <div class="actions text-center" style="width: auto; height: auto;">
           <%= f.submit "LOGIN", class:'btn btn-light .btn-block' %>
         </div>
-
-
-      <% end %>
-      <br/>
+      <% end %><br/>
+      <!--Login Form End-->
+      
     </div>
   </div>
+
 </body>

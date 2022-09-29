@@ -1,44 +1,43 @@
+<!--Plants Page-->
 <div class="container">
 
+  <h1>Plants</h1>
 
-<h1>Plants</h1>
-
+    <!--Search Bar Start-->
     <form class="d-flex" role="search" style="width: 25%">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-light text-right float-end" type="submit">Search</button>
-        </form> <br>
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-light text-right float-end" type="submit">Search</button>
+    </form> <br>
+    <!-- Search Bar End -->
 
-<table class="table table-hover table-bordered ">
-  <thead>
-    <tr>
-      <!--<th>Pid</th>-->
-      <th style="width: 50%">Plant Name</th>
-      <th style="width: auto;">Number of Deepwell</th>
-      <th style="width: auto;">Date Added</th>
-      <th style="width: auto;">Last Updated</th>
-      <th colspan="1">Delete</th>
-    </tr>
-  </thead>
+    <!--Table Start-->
+    <table class="table table-hover table-bordered ">
+      <thead>
+        <tr>
+          <th style="width: 50%">Plant Name</th>
+          <th style="width: auto;">Number of Deepwell</th>
+          <th style="width: auto;">Date Added</th>
+          <th style="width: auto;">Last Updated</th>
+          <th colspan="1">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @plants.each do |plant| %>
+          <tr>
+            <td><%= link_to plant.plantName, deep_well_overviews_path %></td>
+            <td><%= plant.numDeepWell %></td>
+            <td><%= plant.created_at %></td>
+            <td><%= plant.updated_at %></td>
+            <td><%= link_to 'DELETE', plant, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table><br>
+    <!--Table End-->
 
-  <tbody>
-    <% @plants.each do |plant| %>
-      <tr>
-        <!--<td><%= plant.pID %></td>-->
-        <td><%= link_to plant.plantName, deep_well_overviews_path %></td>
-        <td><%= plant.numDeepWell %></td>
-        <td><%= plant.created_at %></td>
-        <td><%= plant.updated_at%></td>
-        <td><%= link_to 'DELETE', plant, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
-      
-      </tr>
-      <% end %>
-  </tbody>
-</table>
-
-<br>
-
-  <button type="button" class="btn btn-light text-right float-end" >
-    <%= link_to 'New Plant', new_plant_path %>
-  </button>
+    <!--Button to Add New Plant-->
+    <button type="button" class="btn btn-light text-right float-end" >
+      <%= link_to 'New Plant', new_plant_path %>
+    </button>
 
 </div>

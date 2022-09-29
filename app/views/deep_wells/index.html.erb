@@ -1,8 +1,7 @@
-<div class="container">
-<p id="notice"><%= notice %></p>
+<!--Specific Deepwell Page-->
 
+<!--CSS Stylesheet for Deepwell Info Table ('Table 1')-->
 <style type="text/css">
-
   .row {
     border: 0.5px solid;
     color: gray;
@@ -14,77 +13,80 @@
   .pcolor{
     color: black;
   }
-
-
 </style>
 
-<!-- start of 'table' #1-->
-
-<div  class="container ">
-  <div class="row">
-      <% @deep_wells.each do |deep_well| %>
-      <p class="pcolor">Deep Well Name: <%= deep_well.deepWellName %></p>
-    </div>
-  <div class="row">
-    <div class="col">
-      <p class="pcolor">Owner: <%= deep_well.ownerName %></p>
-    </div>
-    <div class="col">
-      <p class="pcolor">Date Granted: <%= deep_well.dateGranted %></p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <p class="pcolor">Contractor: <%= deep_well.contractor %></p>
-    </div>
-    <div class="col">
-      <p class="pcolor">Date of Deepwell: </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <p class="pcolor">Well Location: <%= deep_well.wellLocation %></p>
-    </div>
-    <div class="col">
-      <p class="pcolor">Deepwell ID: <%= deep_well.dwID %> </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <p class="pcolor">Well Coordinates: <%= deep_well.wellCoodinates %></p>
-    </div>
-    <div class="col">
-      <p class="pcolor">Water Permit No.:  </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <p class="pcolor">Deep Well Diameter: </p>
-    </div>
-    <div class="col">
-      <p class="pcolor">Total Depth: <%= deep_well.depthTotal %>  </p>
-    </div>
-  </div>
+<div class="container">
+  <!-- [Insert Comment] -->
+  <p id="notice"><%= notice %></p>
 
 
-  </div>
-  <br> <br>
-  <!-- start of table #2-->
-<table class="table table-hover table-bordered ">
-   <thead>
-    <tr>
-      <th style="width: 60%">File</th>
-      <th style="width: auto;">Date Added</th>
-      <th colspan="1">Last Updated</th>
+  <!-- Start of 'table' #1-->
+  <div  class="container ">
+      <div class="row">
+          <% @deep_wells.each do |deep_well| %>
+          <p class="pcolor">Deep Well Name: <%= deep_well.deepWellName %></p>
+        </div>
+      <div class="row">
+        <div class="col">
+          <p class="pcolor">Owner: <%= deep_well.ownerName %></p>
+        </div>
+        <div class="col">
+          <p class="pcolor">Date Granted: <%= deep_well.dateGranted %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p class="pcolor">Contractor: <%= deep_well.contractor %></p>
+        </div>
+        <div class="col">
+          <p class="pcolor">Date of Deepwell: </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p class="pcolor">Well Location: <%= deep_well.wellLocation %></p>
+        </div>
+        <div class="col">
+          <p class="pcolor">Deepwell ID: <%= deep_well.dwID %> </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p class="pcolor">Well Coordinates: <%= deep_well.wellCoodinates %></p>
+        </div>
+        <div class="col">
+          <p class="pcolor">Water Permit No.:  </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p class="pcolor">Deep Well Diameter: </p>
+        </div>
+        <div class="col">
+          <p class="pcolor">Total Depth: <%= deep_well.depthTotal %>  </p>
+        </div>
+      </div>
+    </div><br><br>
+    <!-- End of 'table' #1-->
 
-    </tr>
-  </thead>
-</table>
+  <!-- Start of table #2-->
+  <table class="table table-hover table-bordered ">
+     <thead>
+      <tr>
+        <th style="width: 60%">File</th>
+        <th style="width: auto;">Date Added</th>
+        <th colspan="1">Last Updated</th>
+      </tr>
+    </thead>
+  </table><br>
+  <!-- End of table #2-->
+
+  <!--Button to Add New Deep Well-->
+  <button type="button" class="btn btn-light text-right float-end" >
+    <%= link_to 'New Deep Well', new_deep_well_path %>
+  </button>
   
 </div>
-
-
-
 
 <!--
 
@@ -136,7 +138,5 @@
   </tbody>
 </table>
 
-<br>-->
 <br>
-<%= link_to 'New Deep Well', new_deep_well_path %>
-</div>
+-->

@@ -1,40 +1,45 @@
+<!--Islands/Documents Page-->
 <div class="container">
+
   <h1>Islands</h1>
+
+    <!--Search Bar Start-->
     <form class="d-flex" role="search" style="width: 25%">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-light text-right float-end" type="submit">Search</button>
-        </form> <br>
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-light text-right float-end" type="submit">Search</button>
+    </form> <br>
+    <!-- Search Bar End -->
   
-  <table class="table table-hover table-bordered ">
-  <thead>
-    <tr>
-      <th style="width: 60%">Island Name</th>
-      <th style="width: auto;">Number of Plants</th>
-      <!--<th colspan="1">Delete</th>-->
+    <!--Table Start-->
+    <table class="table table-hover table-bordered ">
+      <thead>
+        <tr>
+          <th style="width: 60%">Island Name</th>
+          <th style="width: auto;">Number of Plants</th>
+          <!--<th colspan="1">Delete</th>-->
+        </tr>
+      </thead>
+      <tbody>
+        <% @islands.each do |island| %>
+          <tr>
+            <td>
+              <%= link_to island.islandName, plants_path %>
+              <% link_to 'edit', island %>
+            </td>
+            <td><%= island.numPlants %></td>
+            <!--<td><% link_to 'Destroy', island, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><% link_to 'Edit', edit_island_path(island) %></td>
+            <td><% link_to 'Destroy', island, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            -->
+          </tr>
+        <% end %>
+      </tbody>
+    </table><br>
+    <!--Table End-->
 
-    </tr>
-  </thead>
-  <tbody>
-    <% @islands.each do |island| %>
-      <tr>
-        <td>
-          <%= link_to island.islandName, plants_path %>
-          <% link_to 'edit', island %>
-        </td>
-        <td><%= island.numPlants %></td>
-        <!--<td><% link_to 'Destroy', island, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        
-        <td><% link_to 'Edit', edit_island_path(island) %></td>
-        <td><% link_to 'Destroy', island, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        -->
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-
-<button type="button" class="btn btn-light text-right float-end" >
-  <%= link_to 'New Island', new_island_path %>
+    <!--Button to Add New Island-->
+    <button type="button" class="btn btn-light text-right float-end" >
+      <%= link_to 'New Island', new_island_path %>
+    </button>
     
-</button>
 </div>
