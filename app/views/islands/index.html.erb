@@ -10,7 +10,7 @@
     <tr>
       <th style="width: 60%">Island Name</th>
       <th style="width: auto;">Number of Plants</th>
-      <th colspan="1">Delete</th>
+      <!--<th colspan="1">Delete</th>-->
 
     </tr>
   </thead>
@@ -19,11 +19,11 @@
       <tr>
         <td>
           <%= link_to island.islandName, plants_path %>
-          <%= link_to 'edit', island %>
+          <% link_to 'edit', island %>
         </td>
         <td><%= island.numPlants %></td>
-        <td><%= link_to 'Destroy', island, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <!--
+        <!--<td><% link_to 'Destroy', island, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
         <td><% link_to 'Edit', edit_island_path(island) %></td>
         <td><% link_to 'Destroy', island, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         -->
